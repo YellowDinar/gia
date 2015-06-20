@@ -1,0 +1,21 @@
+{% extends "base/base.html" %}
+{% block title %}Курсы{% endblock %}
+{% block head %}
+    {% load static %}
+    <link href="{% static 'online_test/css/topics.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div class="content">
+        <h1>Математика</h1>
+        <div class="topics">
+            {% for topic in topics %}
+                <h4>{{ topic }}</h4>
+                <ul>
+                    {% for lecture in topic.lectures %}
+                        <li><a href="/media/{{ lecture.lecture }}" target="_blank">{{ lecture }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endfor%}
+        </div>
+    </div>
+{% endblock %}

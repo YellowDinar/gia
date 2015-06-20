@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import django.core.files.storage
 
 
 class Migration(migrations.Migration):
@@ -16,7 +15,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=40)),
-                ('lecture', models.FileField(storage=django.core.files.storage.FileSystemStorage(location=b'/media/lectures'), upload_to=b'')),
+                ('lecture', models.FileField(upload_to=b'lectures')),
             ],
             options={
             },
@@ -27,12 +26,11 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('question', models.CharField(max_length=300)),
-                ('image', models.ImageField(storage=django.core.files.storage.FileSystemStorage(location=b'/media/images'), upload_to=b'', blank=True)),
+                ('image', models.ImageField(upload_to=b'questions', blank=True)),
                 ('answer1', models.CharField(max_length=40, blank=True)),
                 ('answer2', models.CharField(max_length=40, blank=True)),
                 ('answer3', models.CharField(max_length=40, blank=True)),
                 ('answer4', models.CharField(max_length=40, blank=True)),
-                ('answer', models.CharField(blank=True, max_length=40, choices=[(b'A', models.CharField(max_length=40, blank=True)), (b'B', models.CharField(max_length=40, blank=True)), (b'C', models.CharField(max_length=40, blank=True)), (b'D', models.CharField(max_length=40, blank=True))])),
                 ('correct_answer', models.CharField(max_length=40)),
             ],
             options={

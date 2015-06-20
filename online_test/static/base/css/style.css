@@ -1,0 +1,98 @@
+ body {
+	 font-family: "verdana";
+ }
+ 
+ .header {
+	 background-color: #88bdaf;
+ }
+.header a {color: #FFF}
+#GoToFeatures {
+	margin-right: 100px;
+}
+
+.glav {
+	height: 60vh;
+	padding: 15vh;
+}
+.sdam{
+	font-weight: normal;
+	color: #44332e;
+	font-size: 70px;
+}
+.gia {
+	color: #bb3b1a;
+}
+
+.sdelal {
+	color: #FFF
+}
+.good {
+	background-image: url(../img/one.jpg);
+	background-size: cover;
+	background-position: center top;
+	background-repeat: no-repeat;
+	height: 700px;
+	padding-top: 100px;
+}
+.test {
+	background-image: url(../img/two.jpg);
+	background-size: cover;
+	background-position: center top;
+	background-repeat: no-repeat;
+	height: 855px;
+	padding-top: 240px;
+}
+.test2 {
+	color: #000;
+	font-size: 70px;
+	border-bottom: 10px solid #71b09f;
+}
+.test2:hover {
+	color: #000;
+	text-decoration: none;
+	border-bottom-color: #000;
+}
+.footer {
+	margin: 70px;
+}
+
+.chart {
+	position: relative;
+	width: 130px;
+	height: 130px;
+	margin: 0 auto;
+}
+
+.chart canvas{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.chart span{
+	color: #a9a9a9;
+	font-size: 40px;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 800;
+	line-height: 130px;
+	display: inline-block;
+}
+
+.chart span:after{
+	content: '%';
+	margin-left: 0;
+	font-size: 40px;
+}
+
+#skills h4 {
+    font-size: 24px;
+	font-weight: 700; 
+	margin-top: 25px;
+}
+
+.name {
+	color: #3cf1c9;
+}
+.name p {
+	font-size: 20px;
+}

@@ -1,0 +1,38 @@
+.content {
+    height: 100%;
+    padding-top: 50px;
+    margin-top: -20px;
+    text-align: center;
+    padding-bottom: 100px;
+}
+
+.content div {
+    margin-top: 50px;
+}
+
+.h2 {
+    padding-bottom: 25px;
+}
+
+.content div p {
+    width: 533px;
+    display: inline-block;
+    text-align: justify;
+}
+
+.content A {
+    color: #333; /* Цвет ссылок */
+}
+
+.content A:hover {
+    color: #333; /* Цвет посещенных ссылок */
+}
+
+.content A:visited {
+    color: #333; /* Цвет посещенных ссылок */
+}
+
+.content A:active {
+    color: #000; /* Цвет активных ссылок */
+}
+

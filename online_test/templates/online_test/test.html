@@ -1,0 +1,16 @@
+{% extends "base/base.html" %}
+{% block title %}Тест по математике{% endblock %}
+{% block head %}
+    {% load static %}
+{% endblock %}
+{% block content %}
+    {% for q in questions %}
+        <h4>{{ q }}</h4>
+        <ul>
+            <li>{{ q.answer1 }}</li>
+            <li>{{ q.answer2 }}</li>
+            <li>{{ q.answer3 }}</li>
+            <li>{{ q.answer4 }}</li>
+        </ul>
+    {% endfor %}
+{% endblock %}
