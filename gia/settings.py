@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for gia project.
 
@@ -10,6 +11,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import account
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -26,6 +29,13 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_PROFILE_MODULE = 'account.UserProfile'
+
+#django-registration-redux settings
+SITE_ID = 1
+REGISTRATION_AUTO_LOGIN = True  # If True, the user will be automatically logged in.
+LOGIN_REDIRECT_URL = '/test/'
+LOGIN_URL = '/accounts/login/'
 
 # Application definition
 
@@ -40,8 +50,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'online_test',
-    'email_registration',
+    'account',
+    'registration',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,6 +64,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.csrf',
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.request',
 )
 
 ROOT_URLCONF = 'gia.urls'
@@ -72,7 +91,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'UTC'
 
@@ -93,3 +112,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 LANGUAGE_CODE = 'ru-RU'
 USE_I18N = True
+

@@ -53,7 +53,9 @@
 							<li><a id="GoToAbout" href="#">тест</a></li>
 							<li><a id="GoToWorks" href="#">контакты</a></li>
 							<li><a id="GoToFeatures" href="{% url 'topics' %}">курсы</a></li>
-							<li><a id="GoToPricing" href="#">вход</a></li>
+							<li><a id="GoToPricing" href="{% if is_logged_in %} {% url 'auth_logout' %} ">выход</a></li>
+                                                          {% else %} {% url 'auth_login' %} ">вход</a></li> {% endif %}
+
 						</ul>
 					</nav>
 
