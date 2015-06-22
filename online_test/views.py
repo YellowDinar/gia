@@ -17,9 +17,6 @@ def index(request):
 def about(request):
     return render(request, 'online_test/about.html')
 
-def sign_up_template(request):
-    return render(request, 'registration/email_registration_include.html')
-
 @login_required()
 def online_test(request):
     topics = Topic.objects.all()
@@ -33,7 +30,7 @@ def online_test(request):
 
 @login_required()
 def getTopics(request):
-    topics = Topic.objects.all();
+    topics = Topic.objects.all()
     context = {
         'topics': topics
     }
@@ -55,6 +52,7 @@ def check(request):
     else:
         return HttpResponse("Ошибка!")
 
+@login_required()
 def go(request):
     topics = Topic.objects.all()
     context = {

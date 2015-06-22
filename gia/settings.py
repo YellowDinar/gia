@@ -34,7 +34,7 @@ AUTH_PROFILE_MODULE = 'account.UserProfile'
 #django-registration-redux settings
 SITE_ID = 1
 REGISTRATION_AUTO_LOGIN = True  # If True, the user will be automatically logged in.
-LOGIN_REDIRECT_URL = '/test/'
+LOGIN_REDIRECT_URL = ''
 LOGIN_URL = '/accounts/login/'
 
 # Application definition
