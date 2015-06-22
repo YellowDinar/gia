@@ -1,9 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from models import *
-from io import BytesIO
-from gia import settings
 import random as random_number
+from django.shortcuts import render
+from models import *
+from django.contrib.auth.decorators import login_required
+
 
 def index(request):
     return render(request, 'online_test/index.html')
@@ -11,9 +10,7 @@ def index(request):
 def about(request):
     return render(request, 'online_test/about.html')
 
-def sign_up_template(request):
-    return render(request, 'registration/email_registration_include.html')
-
+@login_required()
 def online_test(request):
     topics = Topic.objects.all()
     context = {
@@ -24,8 +21,9 @@ def online_test(request):
         context['questions'].append(random_number.choice(questions))
     return render(request, 'online_test/test.html', context)
 
+@login_required()
 def getTopics(request):
-    topics = Topic.objects.all();
+    topics = Topic.objects.all()
     context = {
         'topics': topics
     }
