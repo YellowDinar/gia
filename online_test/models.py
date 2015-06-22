@@ -7,14 +7,17 @@ lect_fss = FileSystemStorage(location='/media/lectures')
 
 class Topic(models.Model):
     name = models.CharField(u'Название', max_length=200)
-    about = models.TextField()
-
-    def __unicode__(self):
-        return self.name
+    about = models.TextField(
+        u'Описание'
+    )
 
     class Meta:
         verbose_name = u'Топик'
         verbose_name_plural = u'Топики'
+
+    def __unicode__(self):
+        return self.name
+
 
 class Question(models.Model):
     question = models.CharField(u'Вопрос', max_length=300)
@@ -26,21 +29,21 @@ class Question(models.Model):
     correct_answer = models.CharField(u'Правильный ответ', max_length=40)
     topic = models.ForeignKey(Topic)
 
+    class Meta:
+        verbose_name = u'Воспрос'
+        verbose_name_plural = u'Вопросы'
+
     def __unicode__(self):
         return self.question
-
-    class Meta:
-        verbose_name = u'Вопрос'
-        verbose_name_plural = u'Вопросы'
     
 class Lecture(models.Model):
     name = models.CharField(u'Название', max_length=200)
     lecture = models.FileField(u'Лекция', upload_to='lectures')
     topic = models.ForeignKey(Topic)
 
-    def __unicode__(self):
-        return self.name
-
     class Meta:
         verbose_name = u'Лекция'
         verbose_name_plural = u'Лекции'
+
+    def __unicode__(self):
+        return self.name

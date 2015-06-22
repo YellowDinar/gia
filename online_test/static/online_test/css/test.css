@@ -1,0 +1,37 @@
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin-top: 3px;
+}
+
+.content {
+    text-align: center;
+}
+
+.content h1 {
+    color: rgb(255, 155, 0);
+    margin-top: 60px;
+}
+
+form {
+    display: inline-block;
+    text-align: left;
+}
+
+.question {
+    margin-top: 50px;
+}
+
+.res {
+    margin-top: 145px;
+}
+
+.res input {
+    font-size: 19px;
+}
+
+.test-error {
+    display: none;
+}

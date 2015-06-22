@@ -7,6 +7,8 @@ urlpatterns = patterns('online_test.views',
     url(r'online_test', 'online_test', name="online_test"),
     url(r'topics/', 'getTopics', name="topics"),
     url(r'about/', 'about', name="about"),
+    url(r'check', 'check', name="check"),
+    url(r'go', 'go', name="go"),
 )
 
 

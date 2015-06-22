@@ -1,0 +1,22 @@
+{% extends "base/base.html" %}
+{% block title %}Тест по математике{% endblock %}
+{% block head %}
+    {% load static %}
+    <link href="{% static 'online_test/css/go.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div class="content">
+        <h1 class="h1">Математика</h1>
+        <p class="text">
+            <span>Количество вопросов {{ len }}</span>
+            <span>Максимальный балл 100</span>
+        </p>
+        <p><button class="start btn btn-success">Пройти</button></p>
+
+    </div>
+    <script>
+       document.querySelectorAll('.start')[0].onclick = function() {
+           location.href = "{% url 'online_test' %}"
+       }
+    </script>
+{% endblock %}

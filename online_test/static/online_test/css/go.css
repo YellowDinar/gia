@@ -1,0 +1,24 @@
+.content {
+    text-align: center;
+    padding-bottom: 250px;
+}
+
+.h1 {
+    margin-top: 50px;
+    padding-bottom: 25px;
+}
+
+.text {
+    font-size: 17px;
+}
+
+.start {
+    margin-top: 15px;
+    font-size: 17px;
+    width: 110px;
+}
+
+span {
+    margin-right: 50px;
+    margin-left: 50px;
+}
