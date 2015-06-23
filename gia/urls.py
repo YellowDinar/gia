@@ -7,6 +7,8 @@ from account.views import MyRegistrationView
 
 urlpatterns = patterns('',
     url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
+    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': 'index'}, name='auth_logout'),
+    url(r'^accounts/logout/(?P<next_page>.*)/$', 'django.contrib.auth.views.logout', name='auth_logout_next'),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('online_test.urls')),
