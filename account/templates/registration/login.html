@@ -1,16 +1,25 @@
 {% extends "base/base.html" %}
-
+{% block title %}Выход{% endblock %}
+{% block head %}
+    {% load static %}
+    <link href="{% static 'online_test/css/registration.css' %}" rel="stylesheet">
+{% endblock %}
 {% block content %}
-<div >
-    <h1>Login</h1>
+<div class="content">
+    <h1>Авторизация</h1>
             <form method="post" action=".">
                     {% csrf_token %}
                     {{ form.as_p }}
-
-                    <input type="submit" value="Log in" />
+                    <input class="btn btn-success" type="submit" value="Войти" />
                     <input type="hidden" name="next" value="{{ next }}" />
                     </form>
-
-            <p>Not  a member? <a href="{% url 'registration_register' %}">Register</a>!</p>
+            <br>
+    <br>
+            <p>Если Вы еще не завели аккаунт, <a href="{% url 'registration_register' %}">зарегистрируйтесь</a></p>
 </div>
+{% endblock %}
+{% block script %}
+    <script>
+        $('span').prepend('<br>');
+    </script>
 {% endblock %}

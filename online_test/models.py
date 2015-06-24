@@ -22,16 +22,29 @@ class Topic(models.Model):
 class Question(models.Model):
     question = models.CharField(u'Вопрос', max_length=300)
     image = models.ImageField(u'Картинка', blank=True, upload_to='questions')
-    answer1 = models.CharField(u'Ответ 1', max_length=40, blank=True)
-    answer2 = models.CharField(u'Ответ 2', max_length=40, blank=True)
-    answer3 = models.CharField(u'Ответ 3', max_length=40, blank=True)
-    answer4 = models.CharField(u'Ответ 4', max_length=40, blank=True)
-    correct_answer = models.CharField(u'Правильный ответ', max_length=40)
+    answer1 = models.ImageField(u'Ответ 1', upload_to='answers')
+    answer2 = models.ImageField(u'Ответ 2', upload_to='answers')
+    answer3 = models.ImageField(u'Ответ 3', upload_to='answers')
+    answer4 = models.ImageField(u'Ответ 4', upload_to='answers')
+    a = 'a'
+    b = 'b'
+    c = 'c'
+    d = 'd'
+    choices = (
+        (a, answer1),
+        (b, answer2),
+        (c, answer3),
+        (d, answer4),
+    )
+    correct_answer = models.ImageField(u'Правильный ответ', choices=choices)
     topic = models.ForeignKey(Topic)
 
     class Meta:
         verbose_name = u'Воспрос'
         verbose_name_plural = u'Вопросы'
+
+    def get_choices_value(self):
+        return self.correct_answer
 
     def __unicode__(self):
         return self.question

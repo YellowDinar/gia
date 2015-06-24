@@ -1,6 +1,11 @@
 {% extends "base/base.html" %}
-
+{% block title %}Выход{% endblock %}
+{% block head %}
+    {% load static %}
+    <link href="{% static 'online_test/css/registration.css' %}" rel="stylesheet">
+{% endblock %}
 {% block content %}
-<h1>Logged Out</h1>
-        <p>You are now logged out.</p>
+    <div class="content">
+        <h1>Спасибо за внимание!</h1>
+    </div>
 {% endblock %}

@@ -1,0 +1,9 @@
+.content {
+    margin-top: 50px;
+    text-align: center;
+}
+
+form {
+    text-align: left;
+    display: inline-block;
+}

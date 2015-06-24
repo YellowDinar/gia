@@ -19,74 +19,27 @@
                     questions.push({{ q.id }});
                 </script>
                 <div class="question">
-                    <h4>{{ forloop.counter }}. {{ q }}</h4>
+                    <h4>{{ forloop.counter }}. {{ q }} <img style="width: 150px;" src="/media/{{ q.image }}" /></h4>
                     <ul name="ul">
                         <li><input type="radio" required="required" name="{{ q.id }}"
-                                   value="{{ q.answer1 }}"> {{ q.answer1 }}</li>
+                                   value="a"> <img src="/media/{{ q.answer1 }}" /></li>
                         <li><input type="radio" required="required" name="{{ q.id }}"
-                                   value="{{ q.answer2 }}"> {{ q.answer2 }}</li>
+                                   value="b"> <img src="/media/{{ q.answer2 }}" /></li>
                         <li><input type="radio" required="required" name="{{ q.id }}"
-                                   value="{{ q.answer3 }}"> {{ q.answer3 }}</li>
+                                   value="c"> <img src="/media/{{ q.answer3 }}" /></li>
                         <li><input type="radio" required="required" name="{{ q.id }}"
-                                   value="{{ q.answer4 }}"> {{ q.answer4 }}</li>
+                                   value="d"> <img src="/media/{{ q.answer4 }}" /></li>
                     </ul>
                 </div>
             {% endfor %}
             <div class="alert alert-danger test-error">
                 ...ответьте на все вопросы
             </div>
-            <p class="res"><input type="button" class="btn btn-success btn-block btn-res" value="Узнать результат"></p>
+            <p class="res"><input type="submit" class="btn btn-success btn-block btn-res" value="Узнать результат"></p>
         </form>
     </div>
 {% endblock %}
 
 {% block script %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-    <script>
-        var csrftoken = $.cookie('csrftoken');
-        console.log('csrf: ' + csrftoken);
-
-        function csrfSafeMethod(method) {
-            // these HTTP methods do not require CSRF protection
-            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-        }
-
-        $.ajaxSetup({
-            beforeSend: function (xhr, settings) {
-                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
-                }
-            }
-        });
-
-        $('.btn-res').click(function () {
-            var bool = true;
-            for (var q = 0, len = questions.length; q < len && bool; q++) {
-                if (!$('input[name="' + questions[q] + '"]').is(':checked')) {
-                    bool = false;
-                    $('.test-error').show();
-                }
-            }
-
-            if (bool) {
-                $('.test-error').hide();
-                var context = {
-                    array: []
-                }
-                for (var q = 0, len = questions.length; q < len && bool; q++) {
-                    var obj = {
-                        id: questions[q],
-                        value: $('input[name="' + questions[q] + '"]:checked').val()
-                    }
-                    context.array.push(obj);
-                }
-
-                console.log(JSON.stringify(context));
-                $.post("/test/check", JSON.stringify(context),
-                        function (data) {
-                            alert("Data Loaded: " + data);
-                        });
-            }
-        });
-    </script>
 {% endblock %}

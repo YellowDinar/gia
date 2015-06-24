@@ -9,6 +9,7 @@ urlpatterns = patterns('online_test.views',
     url(r'about/', 'about', name="about"),
     url(r'check', 'check', name="check"),
     url(r'go', 'go', name="go"),
+    url(r'result', 'get_profile', name="result"),
 )
 
 

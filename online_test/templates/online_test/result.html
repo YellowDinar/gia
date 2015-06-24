@@ -1,0 +1,12 @@
+{% extends "base/base.html" %}
+{% block title %}Результат{% endblock %}
+{% block head %}
+    {% load static %}
+    <link href="{% static 'online_test/css/result.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div class="content">
+        <h1 class="h1">Количество баллов</h1>
+        <h1 class="h1_2">{{ result.result }}%</h1>
+    </div>
+{% endblock %}
