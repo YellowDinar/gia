@@ -3,7 +3,7 @@
     padding-bottom: 180px;
 }
 
-.h1 {
+.hh1 {
     margin-top: 50px;
 }
 
@@ -12,3 +12,8 @@
     font-size: 50px;
     color: rgb(255, 155, 0);
 }
+
+li {
+    list-style-type: none;
+}
+

@@ -53,6 +53,7 @@
 						<ul class="nav navbar-nav navbar-right">
 							<li><a id="GoToAbout" href="{% url 'index' %}">Главная</a></li>
 							<li><a id="GoToWorks" href="{% url 'go' %}">Тест</a></li>
+							<li><a id="GoToWorks2" href="{% url 'result' %}">Профиль</a></li>
 							<li><a id="GoToFeatures" href="{% url 'topics' %}">Курсы</a></li>
 							<li><a id="GoToPricing" href="{% if user.is_authenticated %} {% url 'auth_logout' %} ">выход</a></li>
                                                           {% else %} {% url 'auth_login' %} ">вход</a></li> {% endif %}

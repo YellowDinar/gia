@@ -7,6 +7,7 @@ from account.models import UserProfile
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 
+
 def index(request):
     res = UserProfile.objects.all().order_by('result').reverse()
     context = {
@@ -16,8 +17,10 @@ def index(request):
 
     return render(request, 'online_test/index.html', context)
 
+
 def about(request):
     return render(request, 'online_test/about.html')
+
 
 @login_required()
 def online_test(request):
@@ -31,6 +34,7 @@ def online_test(request):
             context['questions'].append(random_number.choice(questions))
     return render(request, 'online_test/test.html', context)
 
+
 @login_required()
 def getTopics(request):
     topics = Topic.objects.all()
@@ -41,6 +45,7 @@ def getTopics(request):
         lectures = Lecture.objects.filter(topic=topic.id)
         topic.__setattr__("lectures", lectures)
     return render(request, 'online_test/topics.html', context)
+
 
 # @csrf_protect
 def check(request):
@@ -59,9 +64,8 @@ def check(request):
                 else:
                     e_kol += 1
         user = User.objects.get(username=request.user.get_username())
-        result = str(c_kol*100/q_kol)
+        result = str(c_kol * 100 / q_kol)
         try:
-            print 'yesyes'
             profile = UserProfile.objects.get(user=user)
             profile.result = result
             profile.save()
@@ -79,11 +83,16 @@ def go(request):
     }
     return render(request, 'online_test/go.html', context)
 
+
 @login_required()
 def get_profile(request):
     user = User.objects.get(username=request.user.get_username())
-    profile = UserProfile.objects.get(user=user)
-    print profile.result
+    try:
+        profile = UserProfile.objects.get(user=user)
+    except ObjectDoesNotExist:
+        profile = UserProfile.objects.create(user=user)
+        profile.save()
+    # print profile.user.email
     return render(request, 'online_test/result.html', {'result': profile})
 
 
