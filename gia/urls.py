@@ -1,9 +1,13 @@
+# -*- coding: utf-8 -*-
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from gia import settings
 from account.views import MyRegistrationView
+
+admin.site.site_header = u'Администрирование'
+admin.site.site_title = u''
 
 urlpatterns = patterns('',
     url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),

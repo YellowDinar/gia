@@ -42,7 +42,7 @@ class Lecture(models.Model):
     topic = models.ForeignKey(Topic)
 
     class Meta:
-        verbose_name = u'Лекция'
+        verbose_name = u'Лекцию'
         verbose_name_plural = u'Лекции'
 
     def __unicode__(self):
